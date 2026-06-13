@@ -13,6 +13,10 @@ from gmail_tool import create_email_draft
 
 app = FastAPI(title="Google Workspace MCP Server")
 
+@app.get("/")
+def read_root():
+    return {"status": "online", "message": "Google Workspace MCP Server is running successfully."}
+
 # Request Schemas
 class DocAppendPayload(BaseModel):
     doc_id: str
