@@ -17,6 +17,10 @@ app = FastAPI(title="Google Workspace MCP Server")
 def read_root():
     return {"status": "online", "message": "Google Workspace MCP Server is running successfully."}
 
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
+
 # Request Schemas
 class DocAppendPayload(BaseModel):
     doc_id: str
